@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Chewy:wght@400;700&display=swap');
+
+      * {
+          box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f0d1d1;
+        font-family: 'Chewy', 'Times New Roman', Times, serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 85%;
+        margin: 1rem;
+      }
+
+      .question {
+          font-size: 1.5rem;
+          padding: 1rem;
+          margin: 1rem;
+      }
+
+      .answer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          background-color: #f0f0f0;
+          border-radius: 8px;
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .answer-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 1rem;
+      }
+
+      .gender-option {
+          padding: 0 0 1rem;
+          border-bottom: 1px solid #ccc;
+          justify-content: space-between;
+      }
+
+      .gender-option p {
+        font-size: 1.5rem;
+      }  
+      
+      .gender-option span {
+        margin-right: 1rem;
+        font-size: 1rem;
+     }
+
+      .file {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 1rem;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+      <div class="answer">
+        <div class="gender-option answer-container">
+            <p>Please tell us about yourself</p>
+            <form>
+                <label for="male">
+                <input type="radio" id="male" name="gender-choice" />
+                <span>Male</span>
+                </label>
+                <label for="female">
+                <input type="radio" id="female" name="gender-choice" />
+                <span>Female</span>
+                </label>
+                <label for="other">
+                <input type="radio" id="other" name="gender-choice" />
+                <span>Other</span>
+                </label>
+            </form>
+        </div>
+        
+        <div class="file-section">
+          <label for="file-upload" class="file-upload-label">
+            <i class="fas fa-paperclip"></i> Attach Files
+          </label>
+          <input type="file" id="file-upload" />
+        </div>
+        
+        <div class="political-persuation">
+          <label for="political-persuation">Political Persuasion:</label>
+          <select id="political-persuation">
+            <option value="left-wing">Left Wing</option>
+            <option value="right-wing">Right Wing</option>
+            <option value="conservative">Conservative</option>
+          </select>
+        </div>
+        
+        <div class="education-level">
+          <label for="education-level">Education Level Completed:</label>
+          <select id="education-level">
+            <option value="university-college">University/College</option>
+            <option value="high-school">High School</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+  </body>
+</html>
