@@ -28,6 +28,45 @@
         align-items: center;
       }
 
+      input {
+        border-radius: 2px;
+        font-family: inherit;
+        border: none;
+        margin: 0 3px;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      input::placeholder {
+        letter-spacing: 1px;
+      }
+
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type="text"], input[type="number"] {
+        min-width: 100px;
+        max-width: 150px;
+      }
+
+      textarea {
+        font-family: inherit;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        font-size: 1rem;
+        border: none;
+      }
+
+      textarea:focus {
+        outline: none;
+        border: none;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+      }
+
       select {
         font-family: inherit;
         border-radius: 10px;
@@ -107,21 +146,23 @@
         background-color: #605be6;
       }
 
+      .file-upload-btn:active {
+        transform: scale(0.98);
+      }
+
       .file-upload-btn input[type='file'] {
         display: none;
         cursor: pointer;
       }
 
       .container table {
-        min-width: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 1rem 0;
+        width: 700px;
+        text-align: center;
+        margin: 1rem auto;
         padding: 1rem;
         border: 1px solid #eee;
         background-color: #deb4dd;
-        border-radius: 5px;
+        border-radius: 5px;        
       }
 
       .container table td {
@@ -130,8 +171,23 @@
 
       .container table .emp {
         opacity: 1;
+        font-weight: bold;
       }
 
+      .submit-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+      .submit-btn:hover {
+        background-color: #fff;
+        cursor: pointer;
+      }
+
+      .submit-btn:active {
+        transform: scale(0.98);
+      }
 
       .wrap-text {
         word-wrap: break-word;
