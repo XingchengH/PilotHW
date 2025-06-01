@@ -19,6 +19,7 @@
       :root {
         --primary-color: #1a0f7c;
         --secondary-color: #998ab4;
+        --effect-color: #8ee2cf;
       }
 
       * {
@@ -26,17 +27,10 @@
       }
 
       body {
-          font-family: 'Chewy', 'Times New Roman', Times, serif;
-          height: 100vh;
-          overflow: hidden;
-      }
-
-      .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 2rem;
-        padding: 2rem;
+        background-color: var(--secondary-color);
+        font-family: 'Chewy', 'Times New Roman', Times, serif;
+        height: 100vh;
+        overflow: hidden;
       }
 
       .logo-link {
@@ -44,11 +38,11 @@
         text-decoration: none;
         font-size: 1.5rem;
       }
-      
+
       #logo {
         height: 50px;
       }
-      
+
       /* Navigation */
       nav {
         background-color: var(--primary-color);
@@ -63,6 +57,7 @@
 
       nav .navbar-item {
         display: flex;
+        align-items: center;
         margin: 0 1rem;
       }
 
@@ -81,53 +76,81 @@
         font-weight: 500;
       }
 
-      nav .navbar-item input {
+      nav .search-area {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      nav .search-area input {
         margin: 0 10px;
+        padding: 5px 10px;
         border-radius: 5px;
         border: 1px solid #eee;
         background-color: var(--secondary-color);
       }
 
-      nav .navbar-item input::placeholder {
+      nav .search-area input::placeholder {
         color: var(--primary-color);
       }
 
-      nav .navbar-item input:focus {
+      nav .search-area input:focus {
         outline: none;
       }
 
-      nav .navbar-item button {
+      nav .search-area button {
+        font-family: inherit;
+        color: var(--primary-color);
         border: 1px solid #eee;
         border-radius: 10px;
         background-color: var(--secondary-color);
-        color: var(--primary-color);
-        font-family: inherit;
-        padding: 0 15px;
+        padding: 5px 15px;
+        cursor: pointer;
       }
 
+      nav .search-area button:hover {
+        background-color: var(--effect-color);
+      }
 
-      @media(max-width: 600px) {
+      @media (max-width: 600px) {
         nav {
           flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
         }
 
-        .navbar-item a {
-          /* display: block; */
+        .logo-link {
+          margin-bottom: 10px;
         }
-
-        .nav-links {
+        
+        nav .navbar-item {
           flex-direction: column;
+          align-items: flex-start;
+        }
 
+        nav .nav-links {
+          flex-direction: column;
+          margin: 10px;
+        }
+
+        nav .search-area {
+          width: 80vw;
+        }
+
+        nav .search-area input {
+          min-width: 85%;
+        }
+
+        nav .navbar-item button {
+          width: 45px;
         }
       }
-
     </style>
   </head>
   <body>
     <nav class="navbar">
       <div class="navbar-item">
         <a href="#" class="logo-link">
-          <img src="" alt="Logo" id="logo">
+          <img src="" alt="Logo" id="logo" />
         </a>
         <ul class="nav-links">
           <li><a href="Home">Home</a></li>
@@ -136,12 +159,14 @@
         </ul>
       </div>
       <div class="navbar-item">
-        <input type="email" id="search" placeholder="Search">
-        <label for="search"></label>  
-        <button>Go</button>
+        <div class="search-area">
+          <input type="text" id="search" placeholder="Search" />
+          <label for="search"></label>
+          <button>Go</button>
+        </div>
       </div>
     </nav>
-
+      
     <script></script>
   </body>
 </html>
