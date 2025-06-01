@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #eee;
+        }
+
+        .container {
+            font-size: 2rem;
+            display: grid;
+            height: 100vh;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-areas: 
+                "header header header header"
+                "nav article article aside"
+                "nav article article aside"
+                "nav article article aside"
+                "footer footer footer footer"
+            ;
+        }
+
+        .container .header {
+            text-align: center;
+            grid-area: header;
+            padding-top: 1rem;
+            background-color: #23ba5d;
+        }
+
+        .container .nav {
+            grid-area: nav;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #9edfb7;
+        }
+
+        .container .article {
+            text-align: center;
+            padding-top: 1rem;
+            grid-area: article;
+        }
+
+        .container .aside {
+            grid-area: aside;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #9edfb7;
+        }
+
+        .container .footer {
+            text-align: center;
+            grid-area: footer;
+            padding-top: 1rem;
+            background-color: #b1ba48;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="nav">Nav</div>
+        <div class="article">Article</div>
+        <div class="aside">Aside</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

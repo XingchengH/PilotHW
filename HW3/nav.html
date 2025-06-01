@@ -74,6 +74,38 @@
         text-decoration: none;
         color: #fff;
         font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links li a::before,
+      .nav-links li a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 2px;
+        background-color: var(--effect-color);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .nav-links li a::before {
+        width: 100%;
+        bottom: 0;
+      }
+
+      .nav-links li a::after {
+        width: 60%;
+        bottom: -4px;
+      }
+
+      .nav-links li a:hover {
+        color: var(--secondary-color);
+      }
+
+      .nav-links li a:hover::before,
+      .nav-links li a:hover::after {
+        transform: scaleX(1);
       }
 
       nav .search-area {
@@ -121,7 +153,7 @@
         .logo-link {
           margin-bottom: 10px;
         }
-        
+
         nav .navbar-item {
           flex-direction: column;
           align-items: flex-start;
@@ -166,7 +198,7 @@
         </div>
       </div>
     </nav>
-      
+
     <script></script>
   </body>
 </html>
