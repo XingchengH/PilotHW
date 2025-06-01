@@ -143,6 +143,19 @@
         background-color: var(--effect-color);
       }
 
+      /* Image container */
+      .img-container {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: url('./images/css_quiz_res.png') center center/cover no-repeat;
+        width: 500px;
+        height: 500px;
+        border-radius: 10px;
+        box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.8), -10px -10px 40px rgba(0, 0, 0, 0.5);
+      }
+
       @media (max-width: 600px) {
         nav {
           flex-direction: column;
@@ -198,6 +211,10 @@
         </div>
       </div>
     </nav>
+
+    <div class="img-container">
+      <!-- <img src="./images/css_quiz_res.png" alt="CSS Quiz Result"> -->
+    </div>
 
     <script></script>
   </body>
