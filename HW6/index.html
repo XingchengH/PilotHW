@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="progress-container">
+        <div class="progress" id="progress">
+          <span class="progress-text">0%</span>
+        </div>
+        <button class="btn" id="prev">Prev</button>
+        <button class="btn" id="next">Next</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="table-section">
+        <table id="product-table" border="1">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Product Category</th>
+              <th>Product Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <form class="form-section">
+          <h4>Add Product</h4>
+          <label for="productName">Product Name: </label>
+          <input type="text" id="productName" />
+          <label for="category">Product Category: </label>
+          <input type="text" id="category" />
+          <label for="price">Prodoct Price:</label>
+          <input type="text" id="price" />
+          <button class="btn" type="submit">Add New</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
