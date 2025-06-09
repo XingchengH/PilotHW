@@ -112,10 +112,8 @@ const initProducts = [
 
 let products = JSON.parse(localStorage.getItem("productList")) || [...initProducts]
 
-console.log(products);
 
-
-function saveToLocal() {
+function saveToLocal() {  
     localStorage.setItem("productList", JSON.stringify(products))
 }
 
@@ -123,12 +121,15 @@ function deleteTr(button) {
   const tr = button.parentElement.parentElement;
   const productName = tr.children[0].innerText
   const productCategory = tr.children[1].innerText
-  const productPrice = tr.children[2].innerText    
+  let productPrice = tr.children[2].innerText
+  productPrice = productPrice.startsWith('$') ? `$${productPrice}` : productPrice
 
   products = products.filter((product) => {
     return !(product.name === productName && product.category === productCategory && product.price === productPrice)
   })
+  console.log(products);
   
+
   saveToLocal()
   tr.remove();
 }
@@ -154,9 +155,11 @@ function addProduct() {
 
   const nameVal = nameEl.value;
   const categoryVal = categoryEl.value;
-  const priceVal = priceEl.value;  
+  let priceVal = priceEl.value;  
 
-  // priceVal = priceVal.startsWith("$") ? priceVal : `$${priceVal}`;
+  priceVal = priceVal.startsWith('$') ? priceVal : `$${priceVal}`
+  console.log(priceVal);
+  
 
   if (!nameVal || !categoryVal || !priceVal) {
     alert("Fill out all fields");
@@ -165,9 +168,9 @@ function addProduct() {
 
   const newProduct = {name: nameVal, category: categoryVal, price: priceVal}
   products.push(newProduct)
-  saveToLocal()
-  
   generateTable({ name: nameVal, category: categoryVal, price: priceVal });
+  
+  saveToLocal()
 
   // Clear Input
   nameEl.value = "";
