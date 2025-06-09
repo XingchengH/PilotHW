@@ -44,3 +44,11 @@ const adding = higherFunction(10)
 const currentAddingRes = adding(1, 2)
 
 console.log(currentAddingRes);
+
+
+// Testing
+// const someFunc = function anotherFunc(something) {
+//     return something
+// }
+
+// console.log(anotherFunc('name')) // error

@@ -155,6 +155,8 @@ function addProduct() {
   const categoryVal = categoryEl.value;
   const priceVal = priceEl.value;  
 
+  priceVal = priceVal.startsWith("$") ? priceVal : `$${priceVal}`;
+
   if (!nameVal || !categoryVal || !priceVal) {
     alert("Fill out all fields");
     return;
