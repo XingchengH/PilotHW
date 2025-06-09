@@ -121,10 +121,9 @@ function deleteTr(button) {
   const tr = button.parentElement.parentElement;
   const productName = tr.children[0].innerText
   const productCategory = tr.children[1].innerText
-  let productPrice = tr.children[2].innerText
-  productPrice = productPrice.startsWith('$') ? `$${productPrice}` : productPrice
+  const productPrice = tr.children[2].innerText
 
-  products = products.filter((product) => {
+  products = products.filter((product) => {    
     return !(product.name === productName && product.category === productCategory && product.price === productPrice)
   })
   console.log(products);
