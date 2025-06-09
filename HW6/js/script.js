@@ -136,6 +136,7 @@ function deleteTr(button) {
 function generateTable({name, category, price}) {
   const tbodyEl = document.querySelector("tbody");
   const trEl = document.createElement("tr");
+  price = price.startsWith("$") ? price : `$${price}`;
 
   trEl.innerHTML = `
         <td>${name}</td>
@@ -155,7 +156,7 @@ function addProduct() {
   const categoryVal = categoryEl.value;
   const priceVal = priceEl.value;  
 
-  priceVal = priceVal.startsWith("$") ? priceVal : `$${priceVal}`;
+  // priceVal = priceVal.startsWith("$") ? priceVal : `$${priceVal}`;
 
   if (!nameVal || !categoryVal || !priceVal) {
     alert("Fill out all fields");
