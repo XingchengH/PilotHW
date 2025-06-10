@@ -304,6 +304,7 @@ function createUserToDosArea(userToDoData) {
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  const table2 = document.getElementById('table-2')
   const userId = document.getElementById("userId").value;
   if (userId) {
     fetchD(userId);
@@ -313,3 +314,23 @@ searchBtn.addEventListener("click", (e) => {
             </div>`;
   }
 });
+
+
+// Question #4
+async function delayedRequest(url) {
+  try {
+    const res = await fetch(url);
+    if (res.status === 200) {
+      const data = await res.json();
+      setTimeout(() => {
+        console.log(data);
+      }, 2000);
+    } else {
+      throw new Error("Failed to fetch data");
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+delayedRequest(url + 'users')
