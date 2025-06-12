@@ -34,7 +34,7 @@ export default class App extends Component {
                         const cityData = this.state.cities[city];
                         return (
                             <div
-                                className={`tab-pane ${this.state.activeBtn === city ? 'show active' : ''}`}
+                                className={`tab-pane ${this.state.activeBtn === city ? 'active' : ''}`}
                                 key={city}
                             >
                                 <h2>{cityData.title}</h2>
