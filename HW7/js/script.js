@@ -1,4 +1,5 @@
 // Question #1 Using ES6 Classes
+
 class Vehicle {
   constructor(engine, speed) {
     this.engine = engine;
@@ -317,6 +318,8 @@ searchBtn.addEventListener("click", (e) => {
 
 
 // Question #4
+// const url = "https://jsonplaceholder.typicode.com/";
+
 async function delayedRequest(url) {
   try {
     const res = await fetch(url);

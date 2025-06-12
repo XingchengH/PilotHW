@@ -24,9 +24,11 @@ export default class App extends Component {
       );
     } else {
       return (
-        <div className="tab-pane">
-          <h2>City not found</h2>
-          <p>Please select a valid city.</p>
+        <div className="tab-pane active text-center card p-5 bg-light">
+          <div className="card-body">
+            <h2 className="card-title text-danger">City not found</h2>
+            <p className="card-text">Please select a valid city.</p>
+          </div>
         </div>
       );
     }
