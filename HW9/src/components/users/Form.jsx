@@ -1,6 +1,16 @@
-export default function Form({formData, handleChange, handleSubmit}) {
+import { useNavigate } from "react-router-dom";
+
+export default function Form({ formData, handleChange, handleSubmit }) {
+  const navigate = useNavigate();
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    await handleSubmit(e);
+    navigate("/users");
+  }
+
   return (
-    <form className="container mt-4">
+    <form className="container mt-4" onSubmit={onSubmit}>
       <fieldset>
         <legend>Adding New User</legend>
         <div className="mb-3">
@@ -59,11 +69,7 @@ export default function Form({formData, handleChange, handleSubmit}) {
             onChange={handleChange}
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={(e) => handleSubmit(e)}
-        >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </fieldset>

@@ -1,81 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserCard from "./users/UserCard";
-import Form from "./users/Form";
 
-export default function Users() {
-  // URL: https://jsonplaceholder.typicode.com/users
-  // disaly all user in route /users
+export default function Users({ users, loading, err }) {
+  const navigate = useNavigate();
 
-  const [users, setUsers] = useState([]);
-  const [err, setErr] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({
-      name: "",
-      email: "",
-      phone: "",
-      website: "",
-    });
-
-
-  const url = "https://jsonplaceholder.typicode.com/users";
-
-
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const res = await axios.get(url);
-        setUsers(res.data);
-
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000);
-      } catch (e) {
-        console.log(e);
-        setErr("Faild to fetch users");
-        setLoading(false);
-      }
-    }
-
-    fetchUsers();
-  }, []);
-
-  function handleSubmit(e) {
+  function onClick(e) {
     e.preventDefault();
-
-    if (!formData.name) {
-      alert("Name is Required");
-      return;
-    }
-
-    const newUser = {
-      id: users.length + 1,
-      ...formData,
-    };
-
-    setUsers([newUser, ...users]);
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      website: "",
-    });
+    navigate("/form");
   }
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-
-    console.log(name);
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }
-
-   
   let content = (
     <div className="row">
       {users.map((user) => (
@@ -109,9 +43,14 @@ export default function Users() {
         ) : (
           content
         )}
+        <div className="row my-4">
+        <div className="col-md-4 offset-md-4">
+          <button className="btn btn-primary w-100" onClick={onClick}>
+            Add More User
+          </button>
+        </div>
+        </div>
       </div>
-
-      <Form formData={formData} handleChange={handleChange} handleSubmit={handleSubmit}/>
     </>
   );
 }

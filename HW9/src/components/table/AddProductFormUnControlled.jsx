@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
-import { ProductContext } from "../Table";
-
+import { ProductContext } from "../context/Context";
 export default function AddProductFormUnControlled() {
   const { handleAddProduct, products } = React.useContext(ProductContext);
 

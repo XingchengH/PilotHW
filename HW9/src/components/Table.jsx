@@ -1,13 +1,12 @@
-import { useState, createContext } from "react";
+import { useState } from "react";
 import initProducts from "../data";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProductTable from "./table/ProductTable";
 import AddProductForm from "./table/AddProductForm";
 import AddProductFormUnControlled from "./table/AddProductFormUnControlled";
+import { ProductContext } from "./context/Context";
 
-const ProductContext = createContext();
-
-function Table() {
+export default function Table() {
   const [products, setProducts] = useState(initProducts);
 
   function handleDelete(id) {
@@ -31,5 +30,3 @@ function Table() {
     </ProductContext.Provider>
   );
 }
-
-export { ProductContext, Table as default };

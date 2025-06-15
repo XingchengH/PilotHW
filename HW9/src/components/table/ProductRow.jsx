@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../Table.jsx";
-
+import { ProductContext } from "../context/Context";
 export default function ProductRow({ product }) {
   const { handleDelete } = useContext(ProductContext);
   return (
