@@ -23,13 +23,28 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="userNavMenu">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/users">
+              <Link className="nav-link" aria-current="page" to="/table">
+                Table
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" aria-current="page" to="/users">
                 Users
               </Link>
             </li>
             <div className="nav-item">
               <Link className="nav-link" to="/form">
                 Add User
+              </Link>
+            </div>
+            <li className="nav-item">
+              <Link className="nav-link" aria-current="page" to="/usersway2">
+                UsersWay2
+              </Link>
+            </li>
+            <div className="nav-item">
+              <Link className="nav-link" to="/form2">
+                Add User 2
               </Link>
             </div>
           </ul>

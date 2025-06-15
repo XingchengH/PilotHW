@@ -1,35 +1,29 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import UserCard from "./usersWay2/UserCardWay2";
 import "bootstrap/dist/css/bootstrap.min.css";
-import UserCard from "./users/UserCard";
 
-export default function Users({ users, loading, err }) {
+import { UserContext } from "../context/Context";
+export default function UsersWay2() {
+  const {users2, loading, err} = useContext(UserContext);  
+  
   const navigate = useNavigate();
 
   function onClick(e) {
-    e.preventDefault();
-    navigate("/form");
+    e.preventDefault;
+    navigate("/form2");
   }
 
-  // Will Remove Later, showing loading Effect
-  const [newLoading, setNewLoading] = useState(true)
-  
-  useEffect(() => {
-    setTimeout(() => {
-      setNewLoading(false)
-    }, 1000)
-  }, [])
-  
 
   let content = (
     <div className="row">
-      {users.map((user) => (
+      {users2.map((user) => (
         <UserCard
           key={user.id}
-          name={user.name}
-          email={user.email}
-          phone={user.phone}
-          website={user.website}
+          name2={user.name}
+          email2={user.email}
+          phone2={user.phone}
+          website2={user.website}
         />
       ))}
     </div>
@@ -47,7 +41,7 @@ export default function Users({ users, loading, err }) {
     <>
       <div className="container mt-3">
         <h1 className="text-center mb-4">Users List</h1>
-        {newLoading ? (
+        {loading ? (
           loadingContent
         ) : err ? (
           <p className="text-danger text-center">{err}</p>
