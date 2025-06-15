@@ -18,7 +18,7 @@ export default function Question4() {
     <>
       <div className="container mt-4 text-center">
         <div className="audio-container">
-          <audio className="w-75" controls ref={audioRef}>
+          <audio className="w-75 my-3 border rounded-5 shadow" controls ref={audioRef}>
             <source src={ThatBoyWasNeverGonnaChange} type="audio/mpeg" />
             Your browser does not suppoet the audio element
           </audio>
