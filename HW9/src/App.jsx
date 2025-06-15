@@ -9,7 +9,8 @@ import Form from "./components/users/Form";
 import FormWay2 from "./components/question2Way2/usersWay2/FormWay2";
 import Header from "./components/Header";
 import Landing from "./components/Landing";
-
+import Question3 from "./components/question3/Question3";
+import Question4 from "./components/question4/Question4";
 // Question 2 Way 2 import
 import { UserContext } from "./components/context/Context";
 
@@ -23,7 +24,7 @@ export default function App() {
     phone: "",
     website: "",
   });
-  
+
   const [users2, setUsers2] = useState([]);
   const [formData2, setFormData2] = useState({
     name: "",
@@ -31,7 +32,7 @@ export default function App() {
     phone: "",
     website: "",
   });
-  
+
   const url = "https://jsonplaceholder.typicode.com/users";
 
   useEffect(() => {
@@ -100,7 +101,6 @@ export default function App() {
     };
 
     setUsers2((prev) => [...prev, newUser]);
-    
 
     setFormData2({
       name: "",
@@ -111,7 +111,7 @@ export default function App() {
   }
 
   function handleChange2(e) {
-    const { name, value } = e.target;        
+    const { name, value } = e.target;
 
     setFormData2((prev) => ({
       ...prev,
@@ -179,6 +179,18 @@ export default function App() {
               handleChange={handleChange}
               handleSubmit={handleSubmit}
             />
+          }
+        />
+        <Route
+          path="/question3"
+          element={
+            <Question3 />
+          }
+        />
+        <Route
+          path="/question4"
+          element={
+            <Question4 />
           }
         />
         <Route path="*" element={<h1>404 Page Not Found</h1>} />

@@ -29,12 +29,12 @@ export default function Header() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/users">
-                Users
+                Users1
               </Link>
             </li>
             <div className="nav-item">
               <Link className="nav-link" to="/form">
-                Add User
+                Add User1
               </Link>
             </div>
             <li className="nav-item">
@@ -45,6 +45,16 @@ export default function Header() {
             <div className="nav-item">
               <Link className="nav-link" to="/form2">
                 Add User 2
+              </Link>
+            </div>
+            <div className="nav-item">
+              <Link className="nav-link" to="/question3">
+                Question3
+              </Link>
+            </div>
+            <div className="nav-item">
+              <Link className="nav-link" to="/question4">
+                Question4
               </Link>
             </div>
           </ul>
