@@ -7,12 +7,13 @@ import Users from "./components/Users";
 import UsersWay2 from "./components/question2Way2/UsersWay2";
 import Form from "./components/users/Form";
 import FormWay2 from "./components/question2Way2/usersWay2/FormWay2";
-import Header from "./components/Header";
+import Header from "./components/Nav";
 import Landing from "./components/Landing";
 import Question3 from "./components/question3/Question3";
 import Question4 from "./components/question4/Question4";
+import SearchFilter from "./components/Question5/Question5";
 // Question 2 Way 2 import
-import { UserContext } from "./components/context/Context";
+import { UserContext } from "./components/Context/Context";
 
 export default function App() {
   const [users, setUsers] = useState([]);
@@ -191,6 +192,12 @@ export default function App() {
           path="/question4"
           element={
             <Question4 />
+          }
+        />
+        <Route
+          path="/question5"
+          element={
+            <SearchFilter />
           }
         />
         <Route path="*" element={<h1>404 Page Not Found</h1>} />

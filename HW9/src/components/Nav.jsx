@@ -24,37 +24,42 @@ export default function Header() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/table">
-                Table
+                Question 1 Table
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/users">
-                Users1
+                Question 2 Users 1
               </Link>
             </li>
             <div className="nav-item">
               <Link className="nav-link" to="/form">
-                Add User1
+                Question 2 Add User 1
               </Link>
             </div>
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/usersway2">
-                UsersWay2
+                Question 2 Users 2
               </Link>
             </li>
             <div className="nav-item">
               <Link className="nav-link" to="/form2">
-                Add User 2
+                Question 2 Add User 2
               </Link>
             </div>
             <div className="nav-item">
               <Link className="nav-link" to="/question3">
-                Question3
+                Question 3
               </Link>
             </div>
             <div className="nav-item">
               <Link className="nav-link" to="/question4">
-                Question4
+                Question 4
+              </Link>
+            </div>
+            <div className="nav-item">
+              <Link className="nav-link" to="/question5">
+                Question 5
               </Link>
             </div>
           </ul>

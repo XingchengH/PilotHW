@@ -22,7 +22,7 @@ export default function Users({ users, loading, err }) {
   
 
   let content = (
-    <div className="row">
+    <div className="row g-3">
       {users.map((user) => (
         <UserCard
           key={user.id}

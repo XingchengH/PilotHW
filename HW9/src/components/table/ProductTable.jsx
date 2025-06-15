@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ProductRow from "./ProductRow";
-import { ProductContext } from "../context/Context";
+import { ProductContext } from "../Context/Context";
 export default function ProductTable() {
   const { products } = useContext(ProductContext);
 

@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ThatBoyWasNeverGonnaChange from "../../assets/audio/That Boy Was Never Gonna Change.mp3";
 export default function Question4() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-
+  
   function handleClick() {
     setIsPlaying((prev) => !prev);
     if (isPlaying) {
@@ -13,6 +13,22 @@ export default function Question4() {
       audioRef.current.play();
     }
   }
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    const handlePlay = () => setIsPlaying(true)
+    const handlePause = () => setIsPlaying(false)
+
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+
+    return () => {
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
+    }
+  }, [])
+
 
   return (
     <>

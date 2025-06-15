@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import UserCard from "./usersWay2/UserCardWay2";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { UserContext } from "../context/Context";
+import { UserContext } from "../Context/Context";
 export default function UsersWay2() {
   const {users2, loading, err} = useContext(UserContext);  
   
@@ -39,7 +39,7 @@ export default function UsersWay2() {
 
   return (
     <>
-      <div className="container mt-3">
+      <div className="container g-3">
         <h1 className="text-center mb-4">Users List</h1>
         {loading ? (
           loadingContent

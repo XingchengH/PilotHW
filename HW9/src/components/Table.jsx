@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ProductTable from "./table/ProductTable";
 import AddProductForm from "./table/AddProductForm";
 import AddProductFormUnControlled from "./table/AddProductFormUnControlled";
-import { ProductContext } from "./context/Context";
+import { ProductContext } from "./Context/Context";
 
 export default function Table() {
   const [products, setProducts] = useState(initProducts);

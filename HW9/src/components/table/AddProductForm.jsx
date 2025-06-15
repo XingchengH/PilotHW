@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ProductContext } from "../context/Context";
+import { ProductContext } from "../Context/Context";
 
 export default function AddProductForm() {
   const [name, setName] = useState("");

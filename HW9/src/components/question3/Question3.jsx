@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import Question3Child from "./Question3Child";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { LanguageContext } from "../context/Context";
+import { LanguageContext } from "../Context/Context";
 
 export default function Question3() {
   const languages = ["JavaScript", "Java"];
