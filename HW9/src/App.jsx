@@ -13,7 +13,7 @@ import Question3 from "./components/question3/Question3";
 import Question4 from "./components/question4/Question4";
 import SearchFilter from "./components/Question5/Question5";
 // Question 2 Way 2 import
-import { UserContext } from "./components/Context/Context";
+import { UserContext } from "./components/store/Context";
 
 export default function App() {
   const [users, setUsers] = useState([]);

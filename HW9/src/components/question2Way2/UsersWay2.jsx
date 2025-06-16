@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import UserCard from "./usersWay2/UserCardWay2";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { UserContext } from "../Context/Context";
+import { UserContext } from "../store/Context";
 export default function UsersWay2() {
   const {users2, loading, err} = useContext(UserContext);  
   

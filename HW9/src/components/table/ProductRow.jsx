@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../Context/Context";
+import { ProductContext } from "../store/Context";
 export default function ProductRow({ product }) {
   const { handleDelete } = useContext(ProductContext);
   return (

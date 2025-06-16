@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LanguageContext } from "../Context/Context";
+import { LanguageContext } from "../store/Context";
 
 export default function Question3Child({ onClick }) {
   const { handleClick } = useContext(LanguageContext);
