@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom right, #3498db 0%, #148f85 100%);
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.5);
+}
+
+.progress-container {
+  position: relative;
+  max-width: 100%;
+  width: 500px;
+  margin: auto 0;
+  margin-bottom: 100px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: #ececec;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  z-index: -1;
+  border-radius: 10px;
+  width: 100%;
+  transition: 0.4s ease;
+}
+
+.progress {
+  background-color: #437599;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  border-radius: 10px;
+  width: 0%;
+  transition: 0.4s ease;
+}
+
+.progress .progress-text {
+  color: #000;
+  position: absolute;
+  font-size: 13px;
+  font-weight: bold;
+  top: 0px;
+  left: 5px;
+}
+
+.progress-container button {
+  font-family: inherit;
+  position: absolute;
+  margin: 10px 0;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #eee;
+}
+
+.progress-container button:hover {
+  background-color: #3498db;
+  box-shadow: none;
+}
+
+.btn {
+  padding: 10px 20px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  background: transparent;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  transition: all .3s ease;
+}
+
+.btn:hover {
+  background-color: #3498db;
+  box-shadow: none;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.container #prev {
+  left: 0;
+  top: 10px;
+}
+
+.container #next {
+  right: 0;
+  top: 10px;
+}
+
+/* Table */
+.table-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  width: 500px;
+  text-align: center;
+  border-color: #eee;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 15px;
+}
+
+thead {
+  font-weight: bold;
+}
+
+#product-table button {
+  font-size: 20;
+  margin: 10px;
+  color: #000;
+}
+
+/* Form */
+form h4 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+form input {
+  margin-right: 10px;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form button {
+  margin-top: 10px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
