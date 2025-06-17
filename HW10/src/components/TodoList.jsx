@@ -24,8 +24,8 @@ export default function TodoList() {
 
   return (
     <>
-      <div className="container my-3">
-        <div className="input-group">
+      <div className="container my-3 p-4 shadow">
+        <div className="input-group p-3 shadow">
           <label htmlFor="todo"></label>
           <input
             type="text"
@@ -44,34 +44,35 @@ export default function TodoList() {
             </button>
           </div>
         </div>
-      </div>
-      <div className="container mt-3">
-        <ul className="list-group">
-          {todos.map((todo) => (
-            <li
-              key={todo.id}
-              className="list-group-item d-flex justify-content-between align-items-center"
-            >
-              <span
-                style={{
-                  textDecoration: todo.completed ? "line-through" : "none",
-                }}
-                onClick={() => toggleHandler(todo.id)}
+
+        <div className="todo-area mt-4 p-3 shadow">
+          <ul className="list-group">
+            {todos.map((todo) => (
+              <li
+                key={todo.id}
+                className="list-group-item d-flex justify-content-between align-items-center"
               >
-                {todo.text}
-              </span>
-              <button
-                className="btn btn-sm btn-danger"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  deleteHandler(todo.id);
-                }}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
+                <span
+                  style={{
+                    textDecoration: todo.completed ? "line-through" : "none",
+                  }}
+                  onClick={() => toggleHandler(todo.id)}
+                >
+                  {todo.text}
+                </span>
+                <button
+                  className="btn btn-sm btn-danger"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteHandler(todo.id);
+                  }}
+                >
+                  Delete
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
