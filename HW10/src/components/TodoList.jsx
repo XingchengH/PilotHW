@@ -45,7 +45,7 @@ export default function TodoList() {
           </div>
         </div>
 
-        <div className="todo-area mt-4 p-3 shadow">
+        <div className={`todo-area mt-4 p-3 ${todos.length > 0 ? 'shadow' : ''}`}>
           <ul className="list-group">
             {todos.map((todo) => (
               <li
