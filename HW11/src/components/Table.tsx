@@ -35,7 +35,7 @@ export default function Table() {
 
     if (!inputData.name || !inputData.category || !inputData.price) {
       alert("Please enter valid product details");
-      setErr(ture)
+      setErr(true);
       return;
     }
 
@@ -136,7 +136,7 @@ export default function Table() {
           />
         </div>
         <button
-          className="btn btn-outline-light btn-secondary text-dark rounded-2 shadow w-100"
+          className="btn btn-light btn-outline-none btn-secondary text-dark rounded-2 shadow w-100"
           onClick={addHandler}
         >
           Add New Product
