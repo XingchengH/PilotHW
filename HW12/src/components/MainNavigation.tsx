@@ -1,44 +1,77 @@
 import { NavLink } from "react-router-dom";
+import AnimatedNavLink from "./AnimatedNavLink";
+import type React from "react";
+import { toggleTheme } from "../store/themeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { type RootState } from "../store/store";
+import { motion, AnimatePresence } from "motion/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
-export default function MainNavigation() {
+const navLinks: { to: string; label: string }[] = [
+  { to: "/", label: "Dashboard" },
+  { to: "/posts", label: "Posts" },
+  { to: "/users", label: "Users" },
+  { to: "/todos", label: "Todos" },
+];
+
+const MainNavigation: React.FC = () => {
+  const dispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.theme.mode);
+
+  const isDark = theme === "dark";
+
   return (
     <header>
-      <nav>
-        <ul>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-            >
-              Dashboard
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/posts"
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-            >
-              Posts
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/users"
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-            >
-              Users
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/todos"
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-            >
-              Todos
-            </NavLink>
-          </li>
-        </ul>
+      <nav
+        className={`navbar navbar-expand-sm ${
+          isDark ? "navbar-dark bg-dark" : "navbar-light bg-light"
+        } px-3`}
+      >
+        <NavLink to="/" className="navbar-brand">
+          Demo
+        </NavLink>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+          aria-controls="navbarMain"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarMain">
+          <div className="navbar-nav ms-auto">
+            {navLinks.map((link) => (
+              <AnimatedNavLink key={link.to} to={link.to} label={link.label} />
+            ))}
+          </div>
+
+          <button
+            onClick={() => dispatch(toggleTheme())}
+            className="btn btn-outline-secondary rounded-circle btn-sm d-flex align-items-center justify-content-center mx-2"
+            style={{ width: "40px", height: "40px", overflow: "hidden" }}
+            title="Toggle Theme"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={theme}
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 10, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FontAwesomeIcon icon={isDark ? faSun : faMoon} />
+              </motion.span>
+            </AnimatePresence>
+          </button>
+        </div>
       </nav>
     </header>
   );
-}
+};
+
+export default MainNavigation;

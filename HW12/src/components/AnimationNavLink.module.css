@@ -1,0 +1,9 @@
+.underline {
+  position: absolute;
+  bottom: 5px;
+  left: 7px;
+  width: calc(100% - 10px);
+  height: 2px;
+  background-color: #0d6efd;
+  border-radius: 2px;
+}
