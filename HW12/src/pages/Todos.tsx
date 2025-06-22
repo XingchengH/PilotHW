@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispath, RootState } from "../store/store";
 import { fetchUsersTodos } from "../store/userActions";
+import { userActions } from "../store/userSlice";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function Todos() {
   const dispatch = useDispatch<AppDispath>();
@@ -9,10 +11,16 @@ export default function Todos() {
 
   const [showCompleted, setShowCompleted] = useState(true);
   const [showNotCompleted, setShowNotCompleted] = useState(true);
+  const [showSorted, setShowSorted] = useState(true);
 
   useEffect(() => {
     dispatch(fetchUsersTodos());
   }, [dispatch]);
+
+  const sortHandler = () => {
+    dispatch(userActions.sortTodo());
+    setShowSorted((prev) => !prev);
+  };
 
   const filteredTodos = todos.filter((todo) => {
     if (todo.completed && showCompleted) return true;
@@ -49,6 +57,18 @@ export default function Todos() {
           Show Not Completed
         </label>
       </div>
+      <div className="form-check form-check-inline">
+        <input
+          type="checkbox"
+          id="sortedCheck"
+          className="form-check-input"
+          checked={showSorted}
+          onChange={sortHandler}
+        />
+        <label className="form-check-label" htmlFor="sortedCheck">
+          Show Sorted Todos
+        </label>
+      </div>
 
       <ul className="list-group mt-4">
         {filteredTodos.length === 0 ? (
@@ -56,23 +76,29 @@ export default function Todos() {
             No todos to show
           </li>
         ) : (
-          filteredTodos.map((todo) => (
-            <li
-              key={todo.id}
-              className={`list-group-item d-flex justify-content-between align-items-center ${
-                todo.completed ? "list-group-item-success" : ""
-              }`}
-            >
-              {todo.title}
-              <span
-                className={`badge rounded-pill ${
-                  todo.completed ? "bg-success" : "bg-secondary"
+          <AnimatePresence mode="popLayout">
+            {filteredTodos.map((todo) => (
+              <motion.li
+                key={todo.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className={`list-group-item d-flex justify-content-between align-items-center ${
+                  todo.completed ? "list-group-item-success" : ""
                 }`}
               >
-                {todo.completed ? "Done" : "Pending"}
-              </span>
-            </li>
-          ))
+                {todo.title}
+                <span
+                  className={`badge rounded-pill ${
+                    todo.completed ? "bg-success" : "bg-secondary"
+                  }`}
+                >
+                  {todo.completed ? "Done" : "Pending"}
+                </span>
+              </motion.li>
+            ))}
+          </AnimatePresence>
         )}
       </ul>
     </div>

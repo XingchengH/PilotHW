@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../store/userActions.tsx";
 import UserCard from "../components/users/UserCard";
@@ -36,14 +37,17 @@ const Users: React.FC = () => {
             value={term}
             onChange={changeHandler}
           />
-          <button
+          <motion.button
             type="button"
             className="btn btn-outline-primary"
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: "nowrap", width: "150px" }}
             onClick={clickHandler}
+            animate={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95, y: 2 }}
+            transition={{type: 'spring', stiffness: 1000}}
           >
             {`${users.isUserSorted ? "Unsort User" : "Sort User"}`}
-          </button>
+          </motion.button>
         </form>
       </div>
 

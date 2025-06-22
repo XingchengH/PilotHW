@@ -52,9 +52,11 @@ interface UserState {
   posts: Post[];
   allPosts: Post[];
   todos: Todo[];
+  allTodos: Todo[];
   comments: Comment[];
   isUserSorted: boolean;
   isPostSorted: boolean;
+  isTodoSorted: boolean;
 }
 
 const initialState: UserState = {
@@ -63,9 +65,11 @@ const initialState: UserState = {
   posts: [],
   allPosts: [],
   todos: [],
+  allTodos: [],
   comments: [],
   isUserSorted: false,
   isPostSorted: false,
+  isTodoSorted: false,
 };
 
 const userSlice = createSlice({
@@ -85,6 +89,7 @@ const userSlice = createSlice({
 
     updateTodos(state, action: PayloadAction<Todo[]>) {
       state.todos = action.payload;
+      state.allTodos = action.payload;
     },
 
     updateComments(state, action: PayloadAction<Comment[]>) {
@@ -121,6 +126,18 @@ const userSlice = createSlice({
       } else {
         state.posts = [...state.allPosts];
         state.isPostSorted = false;
+      }
+    },
+
+    sortTodo(state) {
+      if (!state.isTodoSorted) {
+        state.todos = [...state.todos].sort((a, b) =>
+          a.title.trim().localeCompare(b.title.trim())
+        );
+        state.isTodoSorted = true;
+      } else {
+        state.todos = [...state.allTodos];
+        state.isTodoSorted = false;
       }
     },
 

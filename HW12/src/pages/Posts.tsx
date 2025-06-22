@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import PostCard from "../components/users/PostCard";
 import { fetchUserPostData } from "../store/userActions";
 import { userActions } from "../store/userSlice";
+import { motion } from "motion/react";
 
 const Posts = () => {
   const [term, setTerm] = useState("");
@@ -38,12 +39,17 @@ const Posts = () => {
             placeholder="Search post by title"
             onChange={changeHandler}
           />
-          <button
+          <motion.button
             type="button"
             className="btn btn-outline-primary"
-            style={{ whiteSpace: "nowrap" }}
+            style={{ whiteSpace: "nowrap", width: "150px" }}
             onClick={clickHandler}
-          >{`${users.isPostSorted ? "Unsort Post" : "Sort Post"}`}</button>
+            animate={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9, y: 2 }}
+            transition={{ type: "spring", stiffness: 1000 }}
+          >{`${
+            users.isPostSorted ? "Unsort Post" : "Sort Post"
+          }`}</motion.button>
         </form>
       </div>
       <div className="row g-3 my-3">

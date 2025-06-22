@@ -8,6 +8,7 @@ import {
   fetchComments,
 } from "../store/userActions";
 import type { AppDispath, RootState } from "../store/store";
+import classes from "./Dashboard.module.css";
 
 import {
   PieChart,
@@ -64,7 +65,12 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Carousel indicators={false} interval={5000} pause="hover">
+      <Carousel
+        className={classes.carouselWrapper}
+        indicators={false}
+        interval={5000}
+        pause="hover"
+      >
         {/* Pie Chart */}
         <Carousel.Item>
           <h5 className="text-center mb-3">Pie Chart</h5>
@@ -121,16 +127,18 @@ const Dashboard = () => {
         {/* Bar Chart */}
         <Carousel.Item>
           <h5 className="text-center mb-3">Bar Chart</h5>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis allowDecimals={false} />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="value" fill="#4e8397" />
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="d-flex justify-content-center">
+            <ResponsiveContainer width="80%" height={300}>
+              <BarChart data={data}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis allowDecimals={false} />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="value" fill="#4e8397" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </Carousel.Item>
       </Carousel>
     </div>
