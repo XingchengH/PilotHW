@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import AnimateButton from "../components/Button.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../store/userActions.tsx";
 import UserCard from "../components/users/UserCard";
@@ -21,7 +21,8 @@ const Users: React.FC = () => {
     dispath(userActions.searchUser(value));
   };
 
-  const clickHandler = () => {
+  const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     dispath(userActions.sortUser());
   };
 
@@ -37,25 +38,20 @@ const Users: React.FC = () => {
             value={term}
             onChange={changeHandler}
           />
-          <motion.button
-            type="button"
+          <AnimateButton
             className="btn btn-outline-primary"
             style={{ whiteSpace: "nowrap", width: "150px" }}
-            onClick={clickHandler}
-            animate={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95, y: 2 }}
-            transition={{type: 'spring', stiffness: 1000}}
+            onClick={(e) => clickHandler(e)}
           >
             {`${users.isUserSorted ? "Unsort User" : "Sort User"}`}
-          </motion.button>
+          </AnimateButton>
         </form>
       </div>
 
       <div className="row g-3 my-3">
         {users.users.map((user) => (
-          <div className="col-8 offset-2 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-3">
+          <div key={user.id} className="col-8 offset-2 col-sm-8 offset-sm-2 offset-md-0 col-md-6 col-lg-3">
             <UserCard
-              key={user.id}
               id={user.id}
               name={user.name}
               username={user.username}

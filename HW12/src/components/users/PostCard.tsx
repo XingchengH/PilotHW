@@ -25,8 +25,8 @@ const PostCard: React.FC<{
     >
       <div className="card-header">{props.postId}</div>
       <ul className="list-group list-group-flush">
-        <li className="list-group-item">{props.title}</li>
-        <li className="list-group-item">{props.body}</li>
+        <li role="listitem" className="list-group-item">{props.title}</li>
+        <li role="listitem" className="list-group-item">{props.body}</li>
       </ul>
     </motion.div>
   );

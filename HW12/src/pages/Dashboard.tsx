@@ -8,6 +8,7 @@ import {
   fetchComments,
 } from "../store/userActions";
 import type { AppDispath, RootState } from "../store/store";
+import AnimateCountUp from "../components/AnimateCountUp";
 import classes from "./Dashboard.module.css";
 
 import {
@@ -53,15 +54,15 @@ const Dashboard = () => {
       <div className="row text-center mb-4 fw-semibold fs-5">
         <div className="col">
           <FontAwesomeIcon icon={faUser} className="me-2 text-primary" />
-          Users: {users.length}
+          Users: <AnimateCountUp to={users.length} />
         </div>
         <div className="col">
           <FontAwesomeIcon icon={faBook} className="me-2 text-primary" />
-          Posts: {posts.length}
+          Posts: <AnimateCountUp to={posts.length} />
         </div>
         <div className="col">
           <FontAwesomeIcon icon={faPaperclip} className="me-2 text-primary" />
-          Comments: {comments.length}
+          Comments: <AnimateCountUp to={comments.length} duration={5} />
         </div>
       </div>
 

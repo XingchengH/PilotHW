@@ -60,7 +60,7 @@ export default function PostDetails() {
 
       <h5 className="mb-3">Comments</h5>
       {comments && comments.length > 0 ? (
-        <ul className="list-group">
+        <ul className="list-group mb-4">
           {comments.map((comment) => (
             <li key={comment.id} className="list-group-item">
               <h6>

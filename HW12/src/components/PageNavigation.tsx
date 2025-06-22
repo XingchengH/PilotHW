@@ -1,9 +1,9 @@
 import { useNavigate, useLocation, useParams } from "react-router-dom";
-import { motion } from "motion/react";
+import AnimateButton from "./Button";
 import type React from "react";
 
 interface PageNavigationProps {
-  basePath: string; 
+  basePath: string;
   paramKey: string;
   labels?: {
     all?: string;
@@ -26,27 +26,22 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
 
   return (
     <div className="d-flex justify-content-center gap-3 border-bottom pb-4 mt-3">
-      <motion.button
-        type="button"
+      <AnimateButton
+        isActive={isAll}
         onClick={() => navigate(`/${basePath}`)}
-        className={`btn py-2 px-4 ${isAll ? "border-primary shadow" : "border"}`}
-        animate={{ scale: isAll ? 1.05 : 1 }}
-        whileTap={{ scale: 0.95, y: 2 }}
-        transition={{ type: "spring", stiffness: 1000 }}
+        className={isAll ? "border-primary shadow" : "border"}
       >
-        {labels.all} {basePath.charAt(0).toUpperCase() + basePath.slice(1)}
-      </motion.button>
+        All {basePath.charAt(0).toUpperCase() + basePath.slice(1)}
+      </AnimateButton>
 
-      <motion.button
-        type="button"
+      <AnimateButton
         onClick={() => navigate(`/${basePath}/${id}`)}
-        className={`btn px-4 py-2 ${isActivity ? "border-primary shadow" : "border"}`}
-        animate={{ scale: isActivity ? 1.05 : 1 }}
-        whileTap={{ scale: 0.95, y: 2 }}
-        transition={{ type: "spring", stiffness: 1000 }}
+        className={`btn px-4 py-2 ${
+          isActivity ? "border-primary shadow" : "border"
+        }`}
       >
         {labels.activity}
-      </motion.button>
+      </AnimateButton>
     </div>
   );
 };
