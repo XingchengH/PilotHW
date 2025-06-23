@@ -11,15 +11,17 @@ export default function Error() {
     errorMessage = error.message;
   }
 
+
   return (
     <>
-    <MainNavigation />
-    <div className="container mt-5 text-center">
-      <div className="alert alert-danger" role="alert">
-        <h1 className="alert-heading">Oops! An error occurred.</h1>
-        <p>{errorMessage}</p>
+      <MainNavigation />
+
+      <div className="container text-center" style={{marginTop: "200px"}}>
+        <div className="alert alert-danger" role="alert">
+          <h1 className="alert-heading">Oops! An error occurred.</h1>
+          <p>{errorMessage}</p>
+        </div>
       </div>
-    </div>
     </>
   );
 }
