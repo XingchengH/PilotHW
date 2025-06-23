@@ -95,7 +95,7 @@ const Posts = () => {
         {currentPosts.map((post) => (
           <div
             key={post.id}
-            className="col-8 offset-2 col-md-6 offset-md-0 col-lg-8 offset-lg-2"
+            className="col-8 offset-2 col-md-6 offset-md-0 col-lg-6"
           >
             <PostCard
               postId={post.id}

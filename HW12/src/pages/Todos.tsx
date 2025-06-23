@@ -11,7 +11,7 @@ export default function Todos() {
 
   const [showCompleted, setShowCompleted] = useState(true);
   const [showNotCompleted, setShowNotCompleted] = useState(true);
-  const [showSorted, setShowSorted] = useState(true);
+  const [showSorted, setShowSorted] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUsersTodos());
