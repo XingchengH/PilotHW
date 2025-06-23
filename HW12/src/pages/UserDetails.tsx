@@ -49,7 +49,7 @@ export default function UserDetails() {
   return (
     <div className="container mb-4">
       <h3 className="text-center my-4">User Profile</h3>
-      <div className="row justify-content-center mb-4">
+      <div className="row justify-content-center mb-4 cursor-pointer">
         <div className="col-md-6">
           <div className="card shadow-sm">
             <div className="card-header text-white bg-success">
@@ -67,7 +67,7 @@ export default function UserDetails() {
       <h3 className="text-center my-4">User Posts</h3>
       <div className="row g-3">
         {userPosts?.map((post) => (
-          <div key={post.id} className="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div key={post.id} className="col-12 col-sm-6 col-lg-4 col-xl-3 cursor-pointer">
             <motion.div
               className="card h-100"
               whileHover={{

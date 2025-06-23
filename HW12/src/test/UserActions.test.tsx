@@ -2,7 +2,6 @@ import axios from "axios";
 import { vi } from "vitest";
 import { fetchUserData, fetchUserPostData } from "../store/userActions";
 import { userActions } from "../store/userSlice";
-import { data } from "react-router-dom";
 
 // mock fetching behavior
 vi.mock("axios");

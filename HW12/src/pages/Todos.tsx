@@ -36,11 +36,11 @@ export default function Todos() {
         <input
           type="checkbox"
           id="completedCheck"
-          className="form-check-input"
+          className="form-check-input cursor-pointer"
           checked={showCompleted}
           onChange={() => setShowCompleted((prev) => !prev)}
         />
-        <label className="form-check-label" htmlFor="completedCheck">
+        <label className="form-check-label cursor-pointer" htmlFor="completedCheck">
           Show Completed
         </label>
       </div>
@@ -49,11 +49,11 @@ export default function Todos() {
         <input
           type="checkbox"
           id="notCompletedCheck"
-          className="form-check-input"
+          className="form-check-input cursor-pointer"
           checked={showNotCompleted}
           onChange={() => setShowNotCompleted((prev) => !prev)}
         />
-        <label className="form-check-label" htmlFor="notCompletedCheck">
+        <label className="form-check-label cursor-pointer" htmlFor="notCompletedCheck">
           Show Not Completed
         </label>
       </div>
@@ -61,11 +61,11 @@ export default function Todos() {
         <input
           type="checkbox"
           id="sortedCheck"
-          className="form-check-input"
+          className="form-check-input cursor-pointer"
           checked={showSorted}
           onChange={sortHandler}
         />
-        <label className="form-check-label" htmlFor="sortedCheck">
+        <label className="form-check-label cursor-pointer" htmlFor="sortedCheck">
           Show Sorted Todos
         </label>
       </div>
@@ -90,7 +90,7 @@ export default function Todos() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10, border: "1px solid #eee" }}
                 transition={{ duration: 0.3 }}
-                className={`list-group-item d-flex justify-content-between align-items-center ${
+                className={`list-group-item d-flex justify-content-between align-items-center cursor-pointer ${
                   todo.completed ? "list-group-item-success" : ""
                 }`}
               >

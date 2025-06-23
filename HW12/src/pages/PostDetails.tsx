@@ -51,7 +51,7 @@ export default function PostDetails() {
     return <p className="text-danger text-center mt-4">{postError}</p>;
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 cursor-pointer">
       <div className="card mb-4 border-success">
         <div className="card-header">
           <h4>{post.title}</h4>
@@ -63,11 +63,11 @@ export default function PostDetails() {
 
       <h5 className="mb-3">Comments</h5>
       {comments && comments.length > 0 ? (
-        <ul className="list-group mb-4">
+        <ul className="list-group mb-4 cursor-pointer">
           {comments.map((comment) => (
             <motion.li
               key={comment.id}
-              className="list-group-item"
+              className="list-group-item "
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 10px rgba(0, 123, 255, 0.7)",
