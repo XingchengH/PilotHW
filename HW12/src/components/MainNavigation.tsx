@@ -4,7 +4,7 @@ import type React from "react";
 import { toggleTheme } from "../store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { type RootState } from "../store/store";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,12 +21,30 @@ const MainNavigation: React.FC = () => {
 
   const isDark = theme === "dark";
 
+  // scrolling when bg fade
+  const { scrollY } = useScroll();
+  const backgroundOpacity = useTransform(scrollY, [0, 100], [1, 0.8]);
+  const boxShadow = useTransform(
+    scrollY,
+    [0, 100],
+    ["0 0 0 transparent", "0 2px 10px rgba(0, 0, 0, 0.2)"]
+  );
+
   return (
     <header>
-      <nav
-        className={`navbar navbar-expand-sm ${
+      <motion.nav
+        className={`navbar navbar-expand-sm fixed-top ${
           isDark ? "navbar-dark bg-dark" : "navbar-light bg-light"
         } px-3`}
+        style={{
+          backgroundColor: isDark
+            ? "rgba(33, 37, 41, 1)"
+            : "rgba(255, 255, 255, 1)",
+          opacity: backgroundOpacity,
+          boxShadow: boxShadow,
+          backdropFilter: "blur(10px)",
+          transition: "background-color .3s ease",
+        }}
       >
         <NavLink to="/" className="navbar-brand">
           Demo
@@ -69,7 +87,7 @@ const MainNavigation: React.FC = () => {
             </AnimatePresence>
           </button>
         </div>
-      </nav>
+      </motion.nav>
     </header>
   );
 };
