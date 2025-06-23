@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../useFetch";
+import { motion } from "motion/react";
 
 interface Post {
   id: number;
@@ -36,8 +37,8 @@ export default function UserDetails() {
       : null
   );
 
-  if (userId === 'undefined') {
-    return <p className="text-info text-center mt-3"> No Activity Found</p>
+  if (userId === "undefined") {
+    return <p className="text-info text-center mt-3"> No Activity Found</p>;
   }
 
   if (userLoading || postLoading)
@@ -51,7 +52,7 @@ export default function UserDetails() {
       <div className="row justify-content-center mb-4">
         <div className="col-md-6">
           <div className="card shadow-sm">
-            <div className="card-header bg-primary text-white">
+            <div className="card-header text-white bg-success">
               <h5 className="mb-0">{user.name}</h5>
             </div>
             <ul className="list-group list-group-flush">
@@ -67,12 +68,19 @@ export default function UserDetails() {
       <div className="row g-3">
         {userPosts?.map((post) => (
           <div key={post.id} className="col-12 col-sm-6 col-lg-4 col-xl-3">
-            <div className="card h-100 shadow-sm">
+            <motion.div
+              className="card h-100"
+              whileHover={{
+                scale: 1.05,
+                border: "1px solid blue",
+                boxShadow: "0 0 10px rgba(0, 123, 255, 0.7)",
+              }}
+            >
               <div className="card-body">
                 <h6 className="card-title">{post.title}</h6>
                 <p className="card-text text-truncate">{post.body}</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>

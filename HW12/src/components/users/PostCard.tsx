@@ -18,15 +18,20 @@ const PostCard: React.FC<{
       className="card"
       role="button"
       onClick={handleClick}
+      whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
-      <div className="card-header">{props.postId}</div>
+      <div className="card-header bg-success">{props.postId}</div>
       <ul className="list-group list-group-flush">
-        <li role="listitem" className="list-group-item">{props.title}</li>
-        <li role="listitem" className="list-group-item">{props.body}</li>
+        <li role="listitem" className="list-group-item">
+          {props.title}
+        </li>
+        <li role="listitem" className="list-group-item">
+          {props.body}
+        </li>
       </ul>
     </motion.div>
   );

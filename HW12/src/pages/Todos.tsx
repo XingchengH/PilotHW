@@ -80,9 +80,15 @@ export default function Todos() {
             {filteredTodos.map((todo) => (
               <motion.li
                 key={todo.id}
-                initial={{ opacity: 0, y: 10 }}
+                whileHover={{
+                  scale: 1.05,
+                  zIndex: 10,
+                  border: "1px solid blue",
+                  boxShadow: "0 0 10px rgba(0, 123, 255, 0.7)",
+                }}
+                initial={{ opacity: 0, y: 10, border: "1px solid #eee" }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
+                exit={{ opacity: 0, y: -10, border: "1px solid #eee" }}
                 transition={{ duration: 0.3 }}
                 className={`list-group-item d-flex justify-content-between align-items-center ${
                   todo.completed ? "list-group-item-success" : ""

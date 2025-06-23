@@ -15,12 +15,13 @@ const UserCard: React.FC<User> = (props) => {
       className="card"
       role="button"
       onClick={handleClick}
+      whileHover={{scale: 1.05}}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
-      <div className="card-header">{props.name}</div>
+      <div className="card-header text-white bg-success border-secondary">{props.name}</div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">Username: {props.username}</li>
         <li className="list-group-item">Email: {props.email}</li>

@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../useFetch";
+import { motion } from "motion/react";
 
 interface Post {
   userId: number;
@@ -32,10 +33,12 @@ export default function PostDetails() {
     loading: commentLoading,
     error: commentError,
   } = useFetch<Comment[]>(
-    postId ? `https://jsonplaceholder.typicode.com/posts/${postId}/comments` : null
+    postId
+      ? `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
+      : null
   );
 
-  if (postId === 'undefined') {
+  if (postId === "undefined") {
     return (
       <p className="text-info text-center mt-4">Currently No Activity found</p>
     );
@@ -49,7 +52,7 @@ export default function PostDetails() {
 
   return (
     <div className="container mt-4">
-      <div className="card mb-4">
+      <div className="card mb-4 border-success">
         <div className="card-header">
           <h4>{post.title}</h4>
         </div>
@@ -62,13 +65,21 @@ export default function PostDetails() {
       {comments && comments.length > 0 ? (
         <ul className="list-group mb-4">
           {comments.map((comment) => (
-            <li key={comment.id} className="list-group-item">
+            <motion.li
+              key={comment.id}
+              className="list-group-item"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 10px rgba(0, 123, 255, 0.7)",
+                zIndex: 10,
+              }}
+            >
               <h6>
                 {comment.name}{" "}
                 <small className="text-muted">({comment.email})</small>
               </h6>
               <p className="mb-0">{comment.body}</p>
-            </li>
+            </motion.li>
           ))}
         </ul>
       ) : (
