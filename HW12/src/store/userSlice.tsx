@@ -130,7 +130,7 @@ const userSlice = createSlice({
     },
 
     sortTodo(state) {
-      if (state.isTodoSorted) {
+      if (!state.isTodoSorted) {
         state.todos = [...state.todos].sort((a, b) =>
           a.title.trim().localeCompare(b.title.trim())
         );
