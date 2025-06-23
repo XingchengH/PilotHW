@@ -38,7 +38,7 @@ const Posts = () => {
 
   return (
     <>
-      <div className="row mt-3">
+      <div className="row mt-3 mx-auto" style={{maxWidth: "500px"}}>
         <form className="col d-flex gap-2 align-items-center">
           <label htmlFor="searchPost"></label>
           <input

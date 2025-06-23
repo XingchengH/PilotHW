@@ -28,7 +28,7 @@ const Users: React.FC = () => {
 
   return (
     <>
-      <div className="row my-3">
+      <div className="row my-3 mx-auto" style={{maxWidth: "500px"}}>
         <form className="col d-flex gap-2 align-items-center">
           <input
             type="text"
