@@ -16,6 +16,30 @@ const AnimatedNavLink: React.FC<{ to: string; label: string }> = ({
   return (
     <NavLink
       to={to}
+      className={`nav-link px-2 ${isActive ? "active" : ""}`}
+    >
+      {({ isActive }) => (
+        <span className="position-relative d-inline-block">
+          <span className="z-1 position-relative">{label}</span>
+          {isActive && (
+            <motion.div
+              layoutId="underline"
+              className={classes.underline}
+              transition={{ duration: 0.3 }}
+            />
+          )}
+        </span>
+      )}
+    </NavLink>
+  );
+};
+
+export default AnimatedNavLink;
+
+
+/*
+<NavLink
+      to={to}
       className={`nav-link position-relative px-2 ${isActive ? "active" : ""}`}
     >
       {({ isActive }) => (
@@ -31,7 +55,5 @@ const AnimatedNavLink: React.FC<{ to: string; label: string }> = ({
         </>
       )}
     </NavLink>
-  );
-};
 
-export default AnimatedNavLink;
+    */
