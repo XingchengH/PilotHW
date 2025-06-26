@@ -47,6 +47,7 @@ function Todos() {
       method: "PUT",
     });
     const updated = await res.json();
+    
     setTodos((prev) =>
       prev.map((todo) =>
         todo.id === id ? { ...todo, status: updated.status } : todo
@@ -107,7 +108,9 @@ function Todos() {
             <tr
               key={todo.id}
               className={`${
-                todo.status === "Completed" ? "text-muted opacity-75 table-success" : ""
+                todo.status === "Completed"
+                  ? "text-muted opacity-75 table-success"
+                  : ""
               }`}
             >
               <th scope="row" className="px-2 py-3">
@@ -152,7 +155,7 @@ function Todos() {
                   onClick={() => handleComplete(todo.id)}
                   className="btn btn-sm btn-success me-2"
                 >
-                  Finished
+                  {todo.status === "Completed" ? "Undo" : "Finished"}
                 </button>
               </td>
             </tr>

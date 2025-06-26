@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const url = require("url"); // parsing the URLs from incoming requests
+const { URL } = require("url"); // parsing the URLs from incoming requests
 
 const PORT = 3000;
 
@@ -41,7 +41,7 @@ const sendJSON = (res, statusCode, data) => {
 
 // Define Server
 const server = http.createServer(async (req, res) => {
-  const parsedUrl = url.parse(req.url, true);
+  const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   const parts = parsedUrl.pathname.split("/"); // trying to split the, ["", todo, filename]
 
   if (parts[1] !== "todo" || !parts[2]) {

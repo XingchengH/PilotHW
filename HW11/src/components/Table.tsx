@@ -14,7 +14,7 @@ const initialProduct: Product[] = [
 ];
 
 export default function Table() {
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState<boolean>(false);
   const [products, setProducts] = useState<Product[]>(initialProduct);
   const [inputData, setInputData] = useState<Product>({
     id: products.length + 1,

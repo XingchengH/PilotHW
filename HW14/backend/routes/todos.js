@@ -96,7 +96,10 @@ router
     const idx = todos.findIndex((todo) => todo.id === id);
     if (idx === -1) return res.status(404).json({ error: "Todo Not Found" });
 
-    todos[idx].status = "Completed";
+    todos[idx].status === "Completed"
+      ? (todos[idx].status = "In Progress")
+      : (todos[idx].status = "Completed");
+
     fs.writeFileSync(FILE, JSON.stringify(todos, null, 2));
     res.json(todos[idx]);
   });
