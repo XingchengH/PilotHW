@@ -104,18 +104,23 @@ function Todos() {
         </thead>
         <tbody>
           {todos.map((todo) => (
-            <tr key={todo.id}>
-              <th scope="row">{todo.id}</th>
-              <td
-                className={` 
-                  ${
+            <tr
+              key={todo.id}
+              className={`${
+                todo.status === "Completed" ? "text-muted opacity-75 table-success" : ""
+              }`}
+            >
+              <th scope="row" className="px-2 py-3">
+                {todo.id}
+              </th>
+              <td className="px-2 py-3">
+                <span
+                  className={`position-relative ${
                     todo.status === "Completed"
-                      ? "text-decoration-line-through text-muted opacity-50"
+                      ? "text-decoration-line-through text-muted"
                       : ""
-                  }
-                `}
-              >
-                <div className="px-3 py-2 position-relative d-inline-block">
+                  }`}
+                >
                   {todo.description}
                   <span
                     className={`badge position-absolute top-0 end-0 opacity-75 ${
@@ -126,16 +131,17 @@ function Todos() {
                         : "bg-success"
                     }`}
                     style={{
-                      transform: "translate(40%, -20%)",
+                      transform: "translate(70%, -88%)",
                       fontSize: "0.6rem",
                     }}
                   >
                     {todo.priority}
                   </span>
-                </div>
+                </span>
               </td>
-              <td>{todo.status}</td>
-              <td>
+
+              <td className="px-2 py-3">{todo.status}</td>
+              <td className="px-2 py-3">
                 <button
                   onClick={() => handleDelete(todo.id)}
                   className="btn btn-sm btn-danger me-2"
