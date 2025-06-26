@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "description": "This is the Demo Todo Application",
+    "status": "In Progress",
+    "priority": "Low",
+    "timestamp": "2025-06-26T17:24:57.332Z"
+  },
+  {
+    "id": 2,
+    "description": "Click Completed to completing a todo",
+    "status": "In Progress",
+    "priority": "Medium",
+    "timestamp": "2025-06-26T17:24:57.332Z"
+  },
+  {
+    "id": 3,
+    "description": "Click Finish to finishing a todo",
+    "status": "In Progress",
+    "priority": "High",
+    "timestamp": "2025-06-26T17:24:57.332Z"
+  }
+]
