@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": 1,
+    "description": "Welcome! Add your first task.",
+    "status": "Completed",
+    "priority": "Low",
+    "timestamp": "2025-06-27T21:04:55.855Z"
+  },
+  {
+    "id": 3,
+    "description": "Buying food",
+    "status": "In Progress",
+    "priority": "High",
+    "timestamp": "2025-06-27T21:05:06.403Z"
+  }
+]

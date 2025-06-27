@@ -14,7 +14,6 @@ import {
   faSearch,
   faBell,
   faUsers,
-  faClock,
   faCamera,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -26,20 +25,23 @@ const MainNavigation = () => {
       bg="dark"
       variant="dark"
       expand="lg"
-      className="px-3 py-2 justify-content-between"
+      className="px-3 py-2"
     >
-      <Container fluid>
-        <div className="d-flex align-items-center hap-3">
-          <Link to="/">
-            <i className="fa fa-spotify" aria-hidden="true"></i>
-          </Link>
-
+      <Container fluid className="d-flex justify-content-md-between justify-content-sm-start gap-4">
+        <Link to="/">
+          <i className="fa fa-spotify">Spotify</i>
+        </Link>
+        <div className="d-flex align-items-center gap-3">
           <Link to="/" className="text-white">
             <FontAwesomeIcon icon={faHome} size="lg" />
           </Link>
           <Form
             className="d-flex bg-dark rounded-pill align-items-center px-3"
-            style={{ border: "1px solid #333", maxWidth: "400px" }}
+            style={{
+              border: "1px solid #333",
+              maxWidth: "400px",
+              width: "100%",
+            }}
           >
             <FontAwesomeIcon icon={faSearch} color="#ccc" />
             <FormControl
@@ -53,18 +55,29 @@ const MainNavigation = () => {
           </Form>
         </div>
 
-        <div className="d-flex align-items center gap-3">
-          <FontAwesomeIcon icon={faClock} color="white" title="Install App" />
-          <span className="text-white">Install App</span>
-          <FontAwesomeIcon icon={faBell} color="white" title="Notification" />
-          <FontAwesomeIcon icon={faUsers} color="white" title="Friends" />
+        <div className="d-flex align-items-center gap-4">
+          <FontAwesomeIcon
+            icon={faBell}
+            color="white"
+            title="Notification"
+            cursor="pointer"
+          />
+          <FontAwesomeIcon
+            icon={faUsers}
+            color="white"
+            title="Friends"
+            cursor="pointer"
+          />
 
           <Dropdown align="end">
-            <Dropdown.Toggle variant="dark" className="p-0 border-0">
-              <Image src="" roundedCircle width={32} height={32}></Image>
+            <Dropdown.Toggle
+              variant="dark"
+              className="p-0 border-0 d-flex align-items-center"
+            >
+              <Image src="" roundedCircle width={32} height={32} />
             </Dropdown.Toggle>
 
-            <Dropdown.Menu className="dropdown-menu-end">
+            <Dropdown.Menu className="dropdown-menu-end" variant="dark">
               <Dropdown.Item as={Link} to="/user">
                 Account
               </Dropdown.Item>
