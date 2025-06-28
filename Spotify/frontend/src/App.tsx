@@ -5,6 +5,9 @@ import Dashboard from "./components/Dashboard";
 import User from "./pages/User";
 import UserLayout from "./pages/UserLayout";
 import UserProfile from "./pages/UserProfile";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,17 +17,25 @@ function App() {
       errorElement: <ErrorPage />,
       children: [
         { index: true, element: <Dashboard /> },
+        { path: "login", element: <Login /> },
+        { path: "signup", element: <Signup /> },
+
         {
-          path: "user",
-          element: <UserLayout />,
+          element: <ProtectedRoute />,
           children: [
             {
-              index: true,
-              element: <User />,
-            },
-            {
-              path: "profile",
-              element: <UserProfile />,
+              path: "user",
+              element: <UserLayout />,
+              children: [
+                {
+                  index: true,
+                  element: <User />,
+                },
+                {
+                  path: "profile",
+                  element: <UserProfile />,
+                },
+              ],
             },
           ],
         },
