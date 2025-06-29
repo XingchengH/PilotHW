@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import PlaylistSkeleton from "./skeletons/PlaylistSkeleton";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispath, RootState } from "../store/store";
 import { fetchSongs } from "../store/slices/songsSlice";
@@ -14,8 +14,11 @@ const LeftSidebar = () => {
     (state: RootState) => state.songs
   );
 
-  const albums = useSelector((state: RootState) => state.albums.albums);
-  const albumsStatus = useSelector((state: RootState) => state.albums.status);
+  const {
+    albums,
+    status: albumsStatus,
+    error: albumsError,
+  } = useSelector((state: RootState) => state.albums);
 
   useEffect(() => {
     if (status === "idle") {
@@ -25,9 +28,6 @@ const LeftSidebar = () => {
       dispatch(fetchAlbums());
     }
   }, [status, albumsStatus, dispatch]);
-
-  console.log(albums);
-  console.log({ songs });
 
   return (
     <div className="h-100 d-flex flex-column gap-2">
@@ -44,10 +44,10 @@ const LeftSidebar = () => {
           {status === "loading" ? (
             <PlaylistSkeleton />
           ) : (
-            albums.map((album) => (
+            Object.values(albums.albums ?? {}).map((album, index) => (
               <Link
                 to={`/albums/${album._id}`}
-                key={album._id}
+                key={album._id || index}
                 className="p-2 rounded d-flex align-items-center gap-3 text-decoration-none bg-dark text-white hover-bg"
                 style={{ cursor: "pointer" }}
               >

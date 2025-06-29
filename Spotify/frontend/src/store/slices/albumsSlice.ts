@@ -20,7 +20,7 @@ export const fetchAlbums = createAsyncThunk<Album[]>("albums/fetchAlbums", async
 const albumsSlice = createSlice({
   name: "albums",
   initialState: {
-    albums: [],
+    albums: [] as Album[],
     status: "idle",
     error: null,
   },
