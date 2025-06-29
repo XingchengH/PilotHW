@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance, updateApiToken } from "../lib/axios";
 import { login } from "../store/slices/userSlice";
 import LoadingSpinner from "../components/Spinner";
+import type { RootState } from "../store/store";
 
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const user = useSelector((state: RootState) => state.user);
+
+  useEffect(() => {
+    if (user.token) {
+      navigate("/");
+    }
+  }, [user.token, navigate]);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,10 +35,6 @@ export default function Login() {
         password,
       });
       dispatch(login({ token: res.data.token }));
-      
-      setTimeout(() => {
-        navigate("/");
-      }, 500);
     } catch (error: any) {
       setErr(error.response?.data?.message || "Login failed");
       setLoading(false);

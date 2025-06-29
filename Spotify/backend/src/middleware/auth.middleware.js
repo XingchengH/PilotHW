@@ -4,8 +4,6 @@ const auth = (req, res, next) => {
   const authHeader = req.headers.authorization;
   const token = authHeader?.split(" ")[1];
 
-  console.log("Header:", authHeader);
-  
   console.log("TOKEN:", token);
   console.log("SECRET:", process.env.JWT_SECRET); 
 

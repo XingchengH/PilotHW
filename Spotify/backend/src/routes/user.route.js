@@ -11,7 +11,8 @@ const router = Router();
 
 router.get("/", auth, getAllUsers);
 router.get("/:id", auth, getCurrentUser);
-router.get("/:id/liked-songs", auth, getLikedSongs);
+router.get("/liked-songs", auth, getLikedSongs)
+// router.get("/:id/liked-songs", auth, getLikedSongsByUserId);
 
 router.put("/:id", updateUserProfile);
 

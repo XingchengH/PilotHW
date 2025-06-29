@@ -30,17 +30,29 @@ export const getCurrentUser = async (req, res, next) => {
   }
 };
 
-export const getLikedSongs = async (req, res, next) => {
+// export const getLikedSongsByUserId = async (req, res) => {
+//   const userId = req.user._id;
+//   try {
+//     const user = await User.findById(userId).populate("likedSongs");
+//     if (!user) return res.status(404).json({ message: "User not found" });
+//     res.json({ likedSongs: user.likedSongs });
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// };
+export const getLikedSongs = async (req, res) => {
+  const userId = req.user._id;
   try {
-    const userId = req.user.id;
     const user = await User.findById(userId).populate("likedSongs");
-
     if (!user) return res.status(404).json({ message: "User not found" });
-    res.status(200).json({ likedSongs: user.likedSongs });
+    res.json({ likedSongs: user.likedSongs });
   } catch (err) {
-    next(err);
+    console.error(err.message);
+    res.status(500).json({ message: "Server error" });
   }
 };
+
 
 export const updateUserProfile = async (req, res) => {
   try {

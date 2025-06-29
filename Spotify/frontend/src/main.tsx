@@ -6,7 +6,10 @@ import App from "./App.tsx";
 import { Provider } from "react-redux";
 import AppWrapper from "./AppWrapper.tsx";
 import store from "./store/store.ts";
+import { updateApiToken } from "./lib/axios.ts";
 
+const token = localStorage.getItem("token");
+if (token) updateApiToken(token);
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>

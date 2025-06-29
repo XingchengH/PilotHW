@@ -22,6 +22,8 @@ import type { RootState } from "../store/store";
 import { logout } from "../store/slices/userSlice";
 
 import avt from "../assets/imgs/dummyAvactor.jpg";
+import { resetAlbums } from "../store/slices/albumsSlice";
+import { resetSongs } from "../store/slices/songsSlice";
 
 const MainNavigation = () => {
   const token = useSelector((state: RootState) => state.user.token);
@@ -30,6 +32,8 @@ const MainNavigation = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(resetAlbums());
+    dispatch(resetSongs());
   };
 
   return (

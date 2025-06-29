@@ -22,7 +22,7 @@ export const getFeaturedSongs = async (req, res, next) => {
           _id: 1,
           title: 1,
           artist: 1,
-          imageUrl: 1,
+          imgUrl: 1,
           audioUrl: 1,
         },
       },
@@ -44,7 +44,7 @@ export const getMadeForYouSongs = async (req, res, next) => {
           _id: 1,
           title: 1,
           artist: 1,
-          imageUrl: 1,
+          imgUrl: 1,
           audioUrl: 1,
         },
       },
@@ -66,7 +66,7 @@ export const getTrendingSongs = async (req, res, next) => {
           _id: 1,
           title: 1,
           artist: 1,
-          imageUrl: 1,
+          imgUrl: 1,
           audioUrl: 1,
         },
       },
@@ -80,7 +80,16 @@ export const getTrendingSongs = async (req, res, next) => {
 
 export const addSong = async (req, res, next) => {
   try {
-    const { title, artist, imgUrl, audioUrl, duration, genre, language, albumId } = req.body;
+    const {
+      title,
+      artist,
+      imgUrl,
+      audioUrl,
+      duration,
+      genre,
+      language,
+      albumId,
+    } = req.body;
 
     const song = new Song({
       title,

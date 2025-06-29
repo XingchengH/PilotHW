@@ -14,11 +14,9 @@ const LeftSidebar = () => {
     (state: RootState) => state.songs
   );
 
-  const {
-    albums,
-    status: albumsStatus,
-    error: albumsError,
-  } = useSelector((state: RootState) => state.albums);
+  const { albums: albumList, status: albumsStatus } = useSelector(
+    (state: RootState) => state.albums
+  );
 
   useEffect(() => {
     if (status === "idle") {
@@ -44,27 +42,58 @@ const LeftSidebar = () => {
           {status === "loading" ? (
             <PlaylistSkeleton />
           ) : (
-            Object.values(albums.albums ?? {}).map((album, index) => (
+            <>
               <Link
-                to={`/albums/${album._id}`}
-                key={album._id || index}
-                className="p-2 rounded d-flex align-items-center gap-3 text-decoration-none bg-dark text-white hover-bg"
+                to="/user/likedSong"
+                className="p-2 mb-2 rounded d-flex align-items-center gap-3 text-decoration-none bg-dark text-white hover-bg"
                 style={{ cursor: "pointer" }}
               >
                 <img
-                  src={album.imgUrl}
+                  src="https://misc.scdn.co/liked-songs/liked-songs-300.jpg"
                   alt="Playlist img"
                   className="rounded flex-shrink-0"
-                  style={{ width: "50px", height: "50px", objectFit: "cover" }}
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    objectFit: "cover",
+                  }}
                 />
                 <div className="d-none d-md-block text-truncate w-100">
-                  <p className="mb-0 fw-medium text-truncate">{album.title}</p>
+                  <p className="mb-0 fw-medium text-truncate">Liked Songs</p>
                   <small className="text-muted text-truncate d-block">
-                    Album - {album.artist}
+                    Playlist
                   </small>
                 </div>
               </Link>
-            ))
+
+              {albumList.map((album, index) => (
+                <Link
+                  to={`/albums/${album._id}`}
+                  key={album._id || index}
+                  className="p-2 rounded d-flex align-items-center gap-3 text-decoration-none bg-dark text-white hover-bg"
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    src={album.imgUrl}
+                    alt="Playlist img"
+                    className="rounded flex-shrink-0"
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div className="d-none d-md-block text-truncate w-100">
+                    <p className="mb-0 fw-medium text-truncate">
+                      {album.title}
+                    </p>
+                    <small className="text-muted text-truncate d-block">
+                      Album - {album.artist}
+                    </small>
+                  </div>
+                </Link>
+              ))}
+            </>
           )}
         </div>
       </div>

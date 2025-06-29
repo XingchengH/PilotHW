@@ -14,7 +14,7 @@ export default function RootLayout() {
   );
 
   return (
-    <div className="min-vh-100 d-flex flex-column bg-light">
+    <div className="min-vh-100 d-flex flex-column">
       <header className="sticky-top bg-dark text-white">
         <MainNavigation />
       </header>
@@ -31,7 +31,7 @@ export default function RootLayout() {
           <LeftSidebar />
         </ResizableBox>
 
-        <div className="flex-grow-1 overflow-auto p-3">
+        <div className="flex-grow-1 overflow-auto p-3" style={{background: "#000"}}>
           <Outlet />
         </div>
 
