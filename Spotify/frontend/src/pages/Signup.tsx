@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Form, Button, Container, Alert } from "react-bootstrap";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../lib/axios";
+import LoadingSpinner from "../components/Spinner";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function Signup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/api/auth/register", {
+      await axiosInstance.post("/auth/register", {
         username,
         email,
         password,
@@ -31,7 +32,9 @@ export default function Signup() {
     <Container style={{ maxWidth: "400px" }} className="mt-5">
       <h2 className="mb-4">Sign Up</h2>
       {err && <Alert variant="danger">{err}</Alert>}
-      {success && <Alert variant="success">Signup successful! Redirecting...</Alert>}
+      {success && (
+        <LoadingSpinner fullscreen text="Redirecting..." />
+      )}
 
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="username" className="mb-3">

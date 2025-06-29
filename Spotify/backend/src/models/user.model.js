@@ -19,6 +19,13 @@ const userSchema = new mongoose.Schema(
     imageUrl: {
       type: String,
     },
+    likedSongs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Song",
+      },
+    ],
+    followedArtists: [{ type: mongoose.Schema.Types.ObjectId, ref: "Artist" }],
   },
   { timestamps: true }
 );

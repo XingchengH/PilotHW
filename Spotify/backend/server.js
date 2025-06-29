@@ -1,23 +1,21 @@
 import express from "express";
 import cors from "cors"; // cross origin access since current using two different port
 import dotenv from "dotenv";
-
-import { connectDB } from "./lib/db.js";
-
-import userRoutes from "./routes/user.route.js";
-import authRoute from "./routes/auth.route.js";
-import albumRoutes from "./routes/album.route.js";
-import songRoutes from "./routes/song.route.js";
-import statRoutes from "./routes/stat.route.js";
-import auth from "../middleware/auth.js";
+import { connectDB } from "./src/lib/db.js";
 dotenv.config();
+
+import userRoutes from "./src/routes/user.route.js";
+import authRoute from "./src/routes/auth.route.js";
+import albumRoutes from "./src/routes/album.route.js";
+import songRoutes from "./src/routes/song.route.js";
+import statRoutes from "./src/routes/stat.route.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json()); // allow prase body info
 
-app.use("/api/users", userRoutes);
+app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoute);
 app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);

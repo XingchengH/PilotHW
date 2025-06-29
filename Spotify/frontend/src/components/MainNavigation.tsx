@@ -1,6 +1,5 @@
 import {
   Navbar,
-  Nav,
   Container,
   Form,
   FormControl,
@@ -14,7 +13,7 @@ import {
   faSearch,
   faBell,
   faUsers,
-  faCamera,
+  faMusic,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
@@ -22,7 +21,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../store/store";
 import { logout } from "../store/slices/userSlice";
 
-import avt from '../assets/imgs/dummyAvactor.jpg'
+import avt from "../assets/imgs/dummyAvactor.jpg";
 
 const MainNavigation = () => {
   const token = useSelector((state: RootState) => state.user.token);
@@ -61,7 +60,7 @@ const MainNavigation = () => {
               className="bg-dark text-white border-0 ms-2"
             />
             <Button variant="link" className="text-white">
-              <FontAwesomeIcon icon={faCamera} />
+              <FontAwesomeIcon icon={faMusic} />
             </Button>
           </Form>
         </div>
@@ -86,12 +85,7 @@ const MainNavigation = () => {
                 variant="dark"
                 className="p-0 border-0 d-flex align-items-center"
               >
-                <Image
-                  src={avt}
-                  roundedCircle
-                  width={32}
-                  height={32}
-                />
+                <Image src={avt} roundedCircle width={32} height={32} />
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="dropdown-menu-end" variant="dark">
