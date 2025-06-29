@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json()); // allow prase body info
 
-app.use("/api/user", userRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoute);
 app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);

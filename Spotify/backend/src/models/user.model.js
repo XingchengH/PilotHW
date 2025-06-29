@@ -3,28 +3,11 @@ import bcypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
   {
-    username: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      unique: true,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    imageUrl: {
-      type: String,
-    },
-    likedSongs: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Song",
-      },
-    ],
+    username: { type: String, required: true },
+    email: { type: String, unique: true, required: true },
+    password: { type: String, required: true },
+    imageUrl: { type: String },
+    likedSongs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Song" }],
     followedArtists: [{ type: mongoose.Schema.Types.ObjectId, ref: "Artist" }],
   },
   { timestamps: true }
