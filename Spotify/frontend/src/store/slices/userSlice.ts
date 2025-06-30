@@ -53,7 +53,7 @@ export const fetchUserLikedSongs = createAsyncThunk(
   "user/fetchLikedSongs",
   async (_, thunkAPI) => {
     try {
-      const res = await axiosInstance.get(`users/liked-songs`);
+      const res = await axiosInstance.get(`users/likedSongs`);
 
       return res.data.likedSongs;
     } catch (error: any) {

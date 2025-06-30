@@ -37,7 +37,7 @@ const MainNavigation = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="px-3 py-2">
+    <Navbar variant="dark" expand="lg" className="px-3 py-2" style={{background: "#000"}}>
       <Container
         fluid
         className="d-flex justify-content-md-between justify-content-sm-start gap-4"

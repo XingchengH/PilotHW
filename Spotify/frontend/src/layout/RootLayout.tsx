@@ -14,7 +14,10 @@ export default function RootLayout() {
   );
 
   return (
-    <div className="min-vh-100 d-flex flex-column">
+    <div
+      className="min-vh-100 d-flex flex-column"
+      style={{ background: "#000" }}
+    >
       <header className="sticky-top bg-dark text-white">
         <MainNavigation />
       </header>
@@ -27,11 +30,20 @@ export default function RootLayout() {
           maxConstraints={[400, 0]}
           resizeHandles={["e"]}
           handle={<CustomHandleE />}
+          className="p-2"
+          style={{ height: "100%" }} // ensure fills height
         >
           <LeftSidebar />
         </ResizableBox>
 
-        <div className="flex-grow-1 overflow-auto p-3" style={{background: "#000"}}>
+        <div
+          className="flex-grow-1 p-2"
+          style={{
+            minHeight: 0, // critical to allow internal scrolling
+            overflowY: "auto", // scroll inside here, not page
+            height: "100%", // fill parent's height
+          }}
+        >
           <Outlet />
         </div>
 
@@ -42,9 +54,11 @@ export default function RootLayout() {
           maxConstraints={[400, 0]}
           resizeHandles={["w"]}
           handle={<CustomHandleW />}
+          className="p-2"
+          style={{ height: "100%" }} // ensure fills height
         >
           <div
-            className="h-100 bg-secondary text-white p-3"
+            className="h-100 bg-secondary text-white"
             style={{ minHeight: "100%" }}
           >
             <h5>Right Sidebar</h5>

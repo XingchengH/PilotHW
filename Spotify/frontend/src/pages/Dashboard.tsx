@@ -20,13 +20,12 @@ export default function Dashboard() {
     dispatch(fetchMadeForYouSongs());
     dispatch(fetchTrendingSongs());
   }, [dispatch]);
-  //localhost:5173/albums/686164a242f62fd3a918b67f
 
   return (
     <main
       className="rounded overflow-hidden h-100"
       style={{
-        background: "linear-gradient(to bottom, #000, #18181b)",
+        background: "linear-gradient(to bottom,#18181b,rgb(28, 28, 34))",
       }}
     >
       <div className="overflow-auto" style={{ height: "calc(100vh - 180px)" }}>

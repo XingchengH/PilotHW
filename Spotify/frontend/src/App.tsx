@@ -14,7 +14,6 @@ import type { AppDispath, RootState } from "./store/store";
 import { useEffect } from "react";
 import { fetchFeaturedSongs, fetchMadeForYouSongs, fetchSongs, fetchTrendingSongs } from "./store/slices/songsSlice";
 import { fetchAlbums } from "./store/slices/albumsSlice";
-import { fetchUserLikedSongs } from "./store/slices/userSlice";
 import LikeSong from "./pages/LikeSong";
 
 function App() {

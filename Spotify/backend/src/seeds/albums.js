@@ -204,10 +204,10 @@ const seedData = async () => {
     // Create albums referencing grouped song IDs
     const albums = [
       {
-        title: "Chill Nights",
-        artist: "Luna Echo",
+        title: "A-LIN同名专辑",
+        artist: "A-Lin",
         imgUrl: "/albums/1.jpg",
-        releaseYear: 2021,
+        releaseYear: 2017,
         songs: insertedSongs.slice(0, 5).map((song) => song._id),
       },
       {
@@ -218,10 +218,10 @@ const seedData = async () => {
         songs: insertedSongs.slice(5, 10).map((song) => song._id),
       },
       {
-        title: "Wavescapes",
-        artist: "Blue Horizon",
+        title: "天若有情",
+        artist: "A-Lin",
         imgUrl: "/albums/3.jpg",
-        releaseYear: 2023,
+        releaseYear: 2020,
         songs: insertedSongs.slice(10, 15).map((song) => song._id),
       },
       {

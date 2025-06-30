@@ -30,20 +30,9 @@ export const getCurrentUser = async (req, res, next) => {
   }
 };
 
-// export const getLikedSongsByUserId = async (req, res) => {
-//   const userId = req.user._id;
-//   try {
-//     const user = await User.findById(userId).populate("likedSongs");
-//     if (!user) return res.status(404).json({ message: "User not found" });
-//     res.json({ likedSongs: user.likedSongs });
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).json({ message: "Server error" });
-//   }
-// };
 export const getLikedSongs = async (req, res) => {
-  const userId = req.user._id;
   try {
+    const userId = req.user.id;
     const user = await User.findById(userId).populate("likedSongs");
     if (!user) return res.status(404).json({ message: "User not found" });
     res.json({ likedSongs: user.likedSongs });
@@ -53,6 +42,30 @@ export const getLikedSongs = async (req, res) => {
   }
 };
 
+export const deleteLiked = async (req, res) => {
+  const userId = req.user.id;
+  const { songId } = req.body;
+
+  if (!songId) {
+    return res.status(400).json({ message: "songId is required" });
+  }
+  try {
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $pull: { likedSongs: songId } },
+      { new: true }
+    ).populate("likedSongs");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ likedSongs: user.likedSongs });
+  } catch (error) {
+    console.error("Error unliking song:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
 
 export const updateUserProfile = async (req, res) => {
   try {

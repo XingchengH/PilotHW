@@ -32,7 +32,7 @@ const LeftSidebar = () => {
       <div className="flex-grow-1 rounded bg-dark p-3 d-flex flex-column">
         <div className="d-flex align-items-center text-white mb-3 px-2">
           <FontAwesomeIcon icon={faMusic} className="me-2" />
-          <span className="d-none d-md-inline">Playlists</span>
+          <span className="d-none d-md-inline text-truncate">Playlists</span>
         </div>
 
         <div
